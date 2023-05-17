@@ -144,6 +144,7 @@ cookiecutter gh:maximilian-sprengholz/good-enough-project
 
 # Links
 
+- [Die Präsentation und Beispielsetups]((https://scm.cms.hu-berlin.de/sprenmax/repro-collab)) für `R` und `Stata` findet ihr auf `GitLab`
 - [Großartiger Kurs](https://ecorepsci.github.io/reproducible-science/index.html) von Simona Picardi (Basics generell nutzbar, Rest `R`)
 - [`cookiecutter`](https://github.com/cookiecutter/cookiecutter)
 - [HU Git Instanz](https://scm.cms.hu-berlin.de), [GitHub](https://www.github.com) 
