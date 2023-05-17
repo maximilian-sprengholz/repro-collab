@@ -134,7 +134,7 @@ cookiecutter gh:maximilian-sprengholz/good-enough-project
 # Projektveröffentlichung
 
 - Ein sauberes und gut dokumentiertes Repository ist im Idealfall direkt reproduzierbar und kann ohne viel zusätzlichen Aufwand veröffentlicht bzw. zur Verfügung gestellt werden
-- Ziel: Open Access Hosting der Repositories mit Versionierung, Metadaten und DOI
+- Ziel: Open Access Hosting der Repositories mit Versionierung, Metadaten, Lizenz und DOI
 - Mögliche Plattformen sind [OSF](https://www.osf.io/), [Zenodo](https://www.zenodo.org/) und (kostenpflichtig) [CodeOcean](https://www.codeocean.com)
 - Einige der Plattformen haben Integration mit den großen `git` Plattformen, so dass eigene repositories bei release z.B. direkt von GitHub zu Zenodo gepusht werden
 - [OSF Beispiel](https://osf.io/y7d4q/), [Zenodo Beispiel](https://zenodo.org/record/7670946#.ZGR0ORlBwUE)
