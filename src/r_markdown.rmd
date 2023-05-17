@@ -1,0 +1,118 @@
+---
+title: "RMarkdown Example"
+author: "Maximilian Sprengholz"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+documentclass: article
+geometry: margin = 1in
+output:
+  pdf_document:
+    latex_engine: tectonic
+    keep_tex: false
+    extra_dependencies: ["caption"]
+    fig_caption: true
+  html_document:
+    highlight: pygments
+    table_css: false
+    self_contained: true
+
+---
+
+
+```{r, setup, include = FALSE}
+
+### settings
+set.seed(1234)
+
+
+### user management
+
+# get user = username on machine
+user = Sys.info()[7]
+
+# paths (extend named list by whatever paths you need)
+paths = list(
+  max = list(
+    wd = "/home/max/Seafile/Projects/repro-collab",
+    someotherdir = "/home/some/other/dir"
+    ),
+  edith = list(
+    wd = "C:/Users/edith/repro-collab",
+    someotherdir = "C:/some/other/dir"
+    )
+  )
+for (key in names(paths[[user]])) {
+  do.call("<-", list(key, unlist(paths[[user]][key])))
+}
+
+
+### packages
+# these should ideally be installed via conda and added to the environment.yml
+# in case the packages are not available from conda (conda-forge), the best way forward is to 
+# use the renv package, see:
+# https://rstudio.github.io/renv/articles/renv.html
+# https://rstudio.github.io/renv/articles/collaborating.html
+
+# Once a local r environment (short = renv) is created, packages can be installed
+# using the standard way and saved; and at other times / places restored
+# 
+# if (!require(tictoc)) install.packages("tictoc")
+# library(tictoc)
+# renv::snapshot()
+#
+# renv::restore()
+library(tidyverse)
+library(ggplot2)
+library(stargazer)
+
+
+### knitr output options based on format
+if (knitr::is_latex_output()) {
+  out_format <- "latex"
+} else {
+  out_format <- "html"
+}
+
+```
+
+# Nice Headline
+
+And some nice and easy markdown text, which will be rendered:
+- super
+- duper
+- nice
+
+```{r, data}
+
+# data
+df <- read.csv(paste0(wd, "/data/raw/mtcars.csv"))
+
+```
+
+## Subheadline
+
+Also nice: the `code` features of Markdown. Let's use `ggplot`!
+
+```{r, plot, fig.cap = "RMarkdown histogram mpg"}
+# make plot: no saving needed, everything is channeled to knitr from output
+ggplot(df, aes(x = mpg)) + geom_histogram(binwidth = 5)
+
+```
+
+## Another subheadline
+
+What about `stargazer`? Cool, too!
+
+```{r, table, results = "asis"}
+# make latex table: no saving needed, everything is channeled to knitr from output
+stargazer(
+  df[ , c("mpg", "hp", "cyl")], 
+  type = out_format, # depending on knitr target that is html or latex - specified in the settings  
+  summary.stat = c("n", "mean", "sd", "min", "max"),
+  float = TRUE,
+  header = FALSE,
+  title = "RMarkdown stargazer summary table"
+)
+
+```
+
+And that's it!

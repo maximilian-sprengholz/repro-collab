@@ -1,0 +1,12 @@
+# exclude data from source control by default
+/env
+/data/**
+# in case you have large or confidential raw data, omit the following line
+!/data/raw/**
+!/data/**/
+!/data/**/.gitkeep 
+# usually the following would not be commented out (enough if programs are shared)
+# /src/stata_99_dep.do
+*.synctex.gz
+.DS_Store
+

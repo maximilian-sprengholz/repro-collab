@@ -1,0 +1,109 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[paper=a4paper,left=1.25in,right=1.25in,top=1.25in,bottom=1.25in]{geometry}
+\usepackage[doublespacing]{setspace}
+\setlength{\parindent}{2em}
+
+% koma options
+\addtokomafont{section}{\fontfamily{put} \selectfont} %Kapitel
+\addtokomafont{sectioning}{\fontfamily{put} \selectfont} %Titelzeilen
+\deffootnote{2em}{0em}{\thefootnotemark\textemdash }
+
+% keep lines together
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+
+
+% figures
+\usepackage{graphicx}
+
+% captions
+\usepackage{caption}
+\captionsetup[table]{
+	labelsep=period,
+	justification=centering,
+	format=plain,
+	textfont=footnotesize,
+	name=Table,
+	labelfont={footnotesize, bf},
+	skip=6pt,
+	position=top
+}
+\captionsetup[figure]{
+	labelsep=period,
+	justification=centering,
+	format=plain,
+	textfont=footnotesize,
+	name=Figure,
+	labelfont={footnotesize, bf},
+	skip=6pt,
+	position=top,
+	width=12cm
+}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+% links
+\usepackage[colorlinks=true, citecolor=blue, urlcolor=blue, linkcolor=blue]{hyperref} %, backref=page
+
+% metadata
+\title{Example Manuscript}
+
+\author{
+    Maximilian Sprengholz \\[-15pt]
+    {\small Humboldt-Universität zu Berlin}  \\[-15pt]
+    {\small \href{mailto:maximilian.sprengholz@hu-berlin.de}{maximilian.sprengholz@hu-berlin.de}}
+}
+
+\date{\normalsize \today}
+
+%%% document starts here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%TC:ignore
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+
+% a first section
+\section{Nice Plots}
+
+% stata histogram
+\begin{figure}[!ht]
+	\begin{center}
+		\captionof{figure}{Stata Histogram: Miles per Gallon}
+        \includegraphics{../../results/figures/stata_hist_mpg.pdf}
+	\end{center}
+\end{figure}
+
+% r histogram
+\begin{figure}[!ht]
+	\begin{center}
+		\captionof{figure}{R Histogram: Miles per Gallon}
+        \includegraphics{../../results/figures/r_hist_mpg.pdf}
+	\end{center}
+\end{figure}
+
+
+% a new section
+\section{Nice Tables}
+
+% stata summary table
+\begin{table}[!ht]
+	\begin{center}
+        \captionof{table}{Stata summary table}
+        \input{../../results/tables/stata_sumstats.tex}
+	\end{center}
+\end{table}
+
+% r summary table
+\begin{table}[!ht]
+	\begin{center}
+        \captionof{table}{R summary table}
+        \input{../../results/tables/r_sumstats.tex}
+	\end{center}
+\end{table}
+
+
+\end{document}
