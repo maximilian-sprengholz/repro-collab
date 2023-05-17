@@ -68,6 +68,7 @@ cookiecutter gh:maximilian-sprengholz/good-enough-project
   - __relative Pfade__ `wd/src/00_master.do`, `wd/results/figures/myplot.pdf` (forward slashed + no spaces + no special characters)
 - __Master Files:__ Hier werden `wd` und alles andere defininiert und alle Syntaxen gestartet
 - Bereitstellung aller notwendigen Files oder entsprechender Konfigurationen, welche die Files rekonstruieren können
+- __Raw__ Daten sind tabu!
 
 ---
 
